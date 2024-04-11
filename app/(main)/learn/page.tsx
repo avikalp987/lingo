@@ -4,6 +4,7 @@ import { Header } from "./header"
 import { UserProgress } from "@/components/user-progress"
 import { getUnits, getUserProgress } from "@/db/queries"
 import { redirect } from "next/navigation"
+import { Unit } from "./unit"
 
 const LearnPage = async () => {
 
@@ -41,7 +42,15 @@ const LearnPage = async () => {
                         className="mb-10"
                         key={unit.id}
                     >
-                        {JSON.stringify(unit)}
+                        <Unit 
+                            id={unit.id}
+                            order={unit.order}
+                            description={unit.description}
+                            title={unit.title}
+                            lessons={unit.lessons}
+                            activeLesson={undefined}
+                            activeLessonPercentage={0}
+                        />
                     </div>
                 ))}
             </FeedWrapper>
